@@ -1,0 +1,9 @@
+name: KubLock
+version: ${project.version}
+main: fr.edrow.kublock.KubLock
+api-version: 1.17
+depend: [ CommandAPI ]
+softdepend: [ ProtocolLib ]
+authors: [ Edrow ]
+description: Another block protection plugin but with GUI and NBT tags
+website: https://github.com/Edrow-6
