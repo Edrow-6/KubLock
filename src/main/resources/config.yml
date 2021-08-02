@@ -9,37 +9,35 @@
 # Website: https://dev.dawbee.fr/kublock
 # ————————————————————————————————————————————————
 
-[general]
 # Choose your language, you can choose between en_US, fr_FR or create your translation file.
-language = "en_US"
+language: en_US
 
-allow_redstone = true
-autolock = false
+allow_redstone: true
+autolock: false
 
 
-[features]
-particles = true
-highlight = true
-holograms = true
-commands = true
-tutorial = false
-effects = true
-sounds = true
+particles: true
+highlight: true
+holograms: true
+commands: true
+tutorial: false
+effects: true
+sounds:true
 
-[gui]
-enabled = true
+enabled: true
 
-[protected]
 # https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
-blocks = [ "CHEST", "TRAPPED_CHEST" ]
-worlds = [ "world", "world_nether", "world_the_end" ]
+blocks:
+  - CHEST
+  - TRAPPED_CHEST
+  -
+worlds:
+  - world
+  - world_nether
+  - world_the_end
 
-[permissions]
+worldguard: false
+coreprotect: false
+griefprevention: false
 
-[integration]
-worldguard = false
-coreprotect = false
-griefprevention = false
-
-[core]
-update_notify = true
+update_notify: true
