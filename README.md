@@ -19,15 +19,16 @@
 ## Features
 ***Empty box = Not implemented***
 
- - [ ] GUI (Made with [WolfyUtilities](https://www.curseforge.com/minecraft/bukkit-plugins/wolfyutilities))
+ - [ ] GUI (Made with [IF • Inventory Framework](https://www.spigotmc.org/resources/if-inventory-framework.57216/))
  - [ ] Block HighLight (thanks to [@ArtFect](https://www.spigotmc.org/members/286670/) the creator of [BlockHighlight](https://www.spigotmc.org/resources/blockhighlight.91087/) plugin)
- - [ ] NBT tags (Made with [WolfyUtilities](https://www.curseforge.com/minecraft/bukkit-plugins/wolfyutilities))
+ - [ ] NBT tags (Made with [NBT API](https://www.spigotmc.org/resources/nbt-api.7939/))
  - [ ] Holograms
  - [ ] Permissions System
  - [ ] Lock all the blocks you want
- - [ ] Effects and Sounds on interaction
+ - [ ] Particles (Made with [ParticleLib](https://www.spigotmc.org/resources/%E2%9C%A8-particlelib-%E2%9C%A8-1-8-1-17-%E2%9C%A8-colored-textured-and-more-%E2%9C%A8.89848/))
+ - [ ] Sounds on interaction
  - [ ] Native Command Handler (Made with [CommandAPI](https://www.spigotmc.org/resources/api-commandapi-1-16-5-1-17-1.62353/))
- - [ ] Tutorial with Advancements (Made with [Crazy Advancements API](https://www.spigotmc.org/resources/crazy-advancements-api.51741/))
+ - [ ] In-game tutorial (Made with [Crazy Advancements API](https://www.spigotmc.org/resources/crazy-advancements-api.51741/))
 
 #### More Later (Idea)
 
