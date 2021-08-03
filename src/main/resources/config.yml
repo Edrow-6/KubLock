@@ -22,7 +22,7 @@ holograms: true
 commands: true
 tutorial: false
 effects: true
-sounds:true
+  sounds:true
 
 enabled: true
 

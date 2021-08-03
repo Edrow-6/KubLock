@@ -2,6 +2,7 @@ package fr.edrow.kublock.listener;
 
 import fr.edrow.kublock.KubLock;
 import fr.edrow.kublock.Utils;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -28,6 +29,7 @@ public class PlayerListener implements Listener {
                 if (player.isSneaking()) {
                     event.setCancelled(true);
                     Utils.consoleLog("A player has interacted with something.");
+                    event.getPlayer().sendMessage(ChatColor.of("#7CA5D9") + "Debug interaction message!");
                 }
             }
         }
