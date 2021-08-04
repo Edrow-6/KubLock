@@ -37,9 +37,7 @@
 
 ## Requirements
 
-- [~~WolfyUtilities~~](https://www.curseforge.com/minecraft/bukkit-plugins/wolfyutilities) ***(Integrated)***
-- [CommandAPI](https://www.spigotmc.org/resources/api-commandapi-1-16-5-1-17-1.62353/)
-- [Crazy Advancements API](https://www.spigotmc.org/resources/crazy-advancements-api.51741/)
+- [~~IF • Inventory Framework~~](https://www.spigotmc.org/resources/if-inventory-framework.57216/) ***(Integrated)***
 
 
 ## Installation
