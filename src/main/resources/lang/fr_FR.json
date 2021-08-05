@@ -1,3 +1,14 @@
 {
-  "test": "awoo"
+  "gui": {
+    "button": {
+      "close": {
+        "title": "Fermer",
+        "lore": ""
+      },
+      "info": {
+        "title": "Info vérouillage",
+        "lore": ""
+      }
+    }
+  }
 }

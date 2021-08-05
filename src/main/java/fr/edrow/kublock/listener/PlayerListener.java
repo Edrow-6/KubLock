@@ -5,6 +5,8 @@ import com.github.stefvanschie.inventoryframework.gui.type.ChestGui;
 import com.github.stefvanschie.inventoryframework.pane.PatternPane;
 import com.github.stefvanschie.inventoryframework.pane.util.Pattern;
 import com.google.common.collect.Lists;
+import de.leonhard.storage.Json;
+import de.leonhard.storage.Yaml;
 import fr.edrow.kublock.KubLock;
 import fr.edrow.kublock.Utils;
 import net.md_5.bungee.api.ChatColor;
@@ -19,12 +21,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 public class PlayerListener implements Listener {
     private final KubLock instance;
+    private final Yaml config = KubLock.getInstance().getInstanceConfig();
+    private final Json lang = KubLock.getInstance().getInstanceLang();
 
     public PlayerListener(KubLock instance) {
         this.instance = instance;
@@ -47,43 +50,110 @@ public class PlayerListener implements Listener {
         Pattern pattern = new Pattern(
                 "xxxxxxxxx",
                 "xoxoxox1x",
-                "xxxxxxxxx"
+                "xxxxxxxx0"
         );
         PatternPane pane = new PatternPane(0, 0, 9, 3, pattern);
         gui.addPane(pane);
 
-        // Protection Information Item
-        ItemStack paper = new ItemStack(Material.PAPER);
-        ItemMeta paperMeta = paper.getItemMeta();
-        assert paperMeta != null;
-        paperMeta.setDisplayName("Protection Info");
-        List<String> paperLore = new ArrayList<String>();
-        paperLore.add(ChatColor.LIGHT_PURPLE + "Lore 1");
-        paperLore.add(ChatColor.RED + "Lore 2");
-        paperMeta.setLore(paperLore);
-        paper.setItemMeta(paperMeta);
-
         pane.bindItem('x', new GuiItem(new ItemStack(Material.WHITE_STAINED_GLASS_PANE)));
-        pane.bindItem('1', new GuiItem(paper, e -> {
+
+        // Protection Information Item
+        ItemStack infoItem = new ItemStack(Material.PAPER);
+        ItemMeta infoMeta = infoItem.getItemMeta();
+        assert infoMeta != null;
+        infoMeta.setDisplayName(lang.getString("gui.button.info.title"));
+        List<String> infoLore = new ArrayList<String>();
+        infoLore.add(ChatColor.LIGHT_PURPLE + "Lore 1");
+        infoLore.add(ChatColor.RED + "Lore 2");
+        infoMeta.setLore(infoLore);
+        infoItem.setItemMeta(infoMeta);
+        pane.bindItem('1', new GuiItem(infoItem, e -> {
             // Action to execute
         }));
 
-        if (event.getAction() == Action.LEFT_CLICK_BLOCK) {
-            List<Material> blocks = Lists.newArrayList();
-            for(String materials : instance.getInstanceConfig().getStringList("blocks")) {
-                blocks.add(Material.getMaterial(materials));
-            }
-            for(Material block : blocks) {
-                if (Objects.requireNonNull(event.getClickedBlock()).getType() == block) {
-                    if (player.isSneaking()) {
-                        gui.show(player);
+        // Close Button Item
+        ItemStack closeItem = new ItemStack(Material.BARRIER);
+        ItemMeta closeMeta = closeItem.getItemMeta();
+        assert closeMeta != null;
+        closeMeta.setDisplayName(lang.getString("gui.button.close.title"));
+        pane.bindItem('0', new GuiItem(closeItem, e -> {
 
-                        event.setCancelled(true);
-                        Utils.infoLog("A player has interacted with something.");
-                        event.getPlayer().sendMessage(ChatColor.of("#7CA5D9") + "Debug interaction message!");
+        }));
+
+        List<Material> blocks = Lists.newArrayList();
+        for (String materials : instance.getInstanceConfig().getStringList("blocks")) {
+            blocks.add(Material.getMaterial(materials));
+        }
+
+        switch (instance.getInstanceConfig().getOrSetDefault("on_event", "SNEAK_LEFT_CLICK")) {
+            case "SNEAK_LEFT_CLICK":
+                if (event.getAction() == Action.LEFT_CLICK_BLOCK) {
+                    for (Material block : blocks) {
+                        if (Objects.requireNonNull(event.getClickedBlock()).getType() == block) {
+                            if (player.isSneaking()) {
+                                // Execute Event
+                                gui.show(player);
+
+                                // Debug
+                                event.setCancelled(true);
+                                Utils.infoLog("A player has interacted with " + block);
+                                event.getPlayer().sendMessage(ChatColor.of("#7CA5D9") + "Debug interaction message! (SNEAK_LEFT_CLICK)");
+                            }
+                        }
                     }
                 }
-            }
+                break;
+            case "SNEAK_RIGHT_CLICK":
+                if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+                    for (Material block : blocks) {
+                        if (Objects.requireNonNull(event.getClickedBlock()).getType() == block) {
+                            if (player.isSneaking()) {
+                                // Execute Event
+                                gui.show(player);
+
+                                // Debug
+                                event.setCancelled(true);
+                                Utils.infoLog("A player has interacted with " + block);
+                                event.getPlayer().sendMessage(ChatColor.of("#7CA5D9") + "Debug interaction message! (SNEAK_RIGHT_CLICK)");
+                            }
+                        }
+                    }
+                }
+                break;
+            case "LEFT_CLICK":
+                if (event.getAction() == Action.LEFT_CLICK_BLOCK) {
+                    for (Material block : blocks) {
+                        if (Objects.requireNonNull(event.getClickedBlock()).getType() == block) {
+                            if (!player.isSneaking()) {
+                                // Execute Event
+                                gui.show(player);
+
+                                // Debug
+                                event.setCancelled(true);
+                                Utils.infoLog("A player has interacted with " + block);
+                                event.getPlayer().sendMessage(ChatColor.of("#7CA5D9") + "Debug interaction message! (LEFT_CLICK)");
+                            }
+                        }
+                    }
+                }
+                break;
+            case "RIGHT_CLICK":
+                if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+                    for (Material block : blocks) {
+                        if (Objects.requireNonNull(event.getClickedBlock()).getType() == block) {
+                            if (!player.isSneaking()) {
+                                // Execute Event
+                                gui.show(player);
+
+                                // Debug
+                                event.setCancelled(true);
+                                Utils.infoLog("A player has interacted with " + block);
+                                event.getPlayer().sendMessage(ChatColor.of("#7CA5D9") + "Debug interaction message! (RIGHT_CLICK)");
+                            }
+                        }
+                    }
+                }
+                break;
         }
     }
 }

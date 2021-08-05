@@ -1,8 +1,7 @@
 
-<h1 align="center">KubLock</a></h1><p align="center"><b>○ <a href="https://discord.io/dawbee">Discord</a> • <a href="https://dev.dawbee.fr/kublock">Website</a> • <a href="#">Spigot</a> ○</b></h5>
+<h1 align="center">KubLock</h1><p align="center"><b>○ <a href="https://discord.io/dawbee">Discord</a> • <a href="https://dev.dawbee.fr/kublock">Website</a> • <a href="#">Spigot</a> ○</b>
 
-
-##### Another block protection plugin but with GUI, Block HighLight, NBT tags, Holograms and more!
+##### Another block protection plugin but with GUI, Block HighLight, NBT tags, Holograms, and more!
 >   GUI: `Desc to be written`
 
 >   Block HighLight: `Desc to be written`
@@ -14,11 +13,12 @@
 ## Information
 ##### *`This is my first spigot plugin and it's the first time I code in Java`*
 
-##### NOTE: Plugin in development until version 1.0 stable is released.
+##### NOTE: Plugin in development until version 1.0 stable released.
 
 ## Features
 ***Empty box = Not implemented***
 
+ - [x] Automatic configuration and language reload.`Save your changes without the need to reload the plugin`
  - [ ] GUI (Made with [IF • Inventory Framework](https://www.spigotmc.org/resources/if-inventory-framework.57216/))
  - [ ] Block HighLight (thanks to [@ArtFect](https://www.spigotmc.org/members/286670/) the creator of [BlockHighlight](https://www.spigotmc.org/resources/blockhighlight.91087/) plugin)
  - [ ] NBT tags (Made with [NBT API](https://www.spigotmc.org/resources/nbt-api.7939/))
@@ -41,9 +41,8 @@
 
 
 ## Installation
-- Download the plugin on **Spigot** or **Github** and place it in your ***"plugins"*** folder.
-- Stop your server, configure the plugin. 
-- Start your server and enjoy!
+- Download the plugin on **Spigot** or **GitHub** and place it in your ***"plugins"*** folder.
+- Restart your server, configure the plugin.
 
 ### Conflicts
 * The following plugins cannot be used with KubLock

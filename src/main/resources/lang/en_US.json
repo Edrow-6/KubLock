@@ -1,2 +1,14 @@
 {
+  "gui": {
+    "button": {
+      "close": {
+        "title": "Close",
+        "lore": ""
+      },
+      "info": {
+        "title": "Lock Info",
+        "lore": ""
+      }
+    }
+  }
 }

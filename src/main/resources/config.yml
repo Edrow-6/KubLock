@@ -26,7 +26,7 @@ effects: true
   sounds:true
 
 # SNEAK_LEFT_CLICK, SNEAK_RIGHT_CLICK, LEFT_CLICK, RIGHT_CLICK
-on_event: SNEAK_LEFTCLICK
+on_event: SNEAK_LEFT_CLICK
 
 # https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
 blocks:
